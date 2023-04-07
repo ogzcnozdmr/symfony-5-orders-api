@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "d9b1a655-6ba1-4fb9-bc2e-ce74d0f220d5",
+		"name": "Pact Orders Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\":\"test2@test.com\",\"password\":\"test\"}"
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/register",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"test@test.com\",\"password\":\"test\"}"
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/login_check",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"login_check"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Add",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"orderCode\":\"1010101013\",\"productid\":1,\"quantity\":10,\"address\":\"KAHRAMANMARAŞ/ONİKİŞUBAT\"}"
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/orders/add",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"orderCode\":\"1010101013\",\"shippingDate\":\"2020-02-02 17:17:17\"}"
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/orders/update",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/api/orders/{id}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/api/orders",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "http://127.0.0.1:8002",
+			"type": "default"
+		},
+		{
+			"key": "TOKEN",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2ODA4Njg3NjUsImV4cCI6MTY4MDg3MjM2NSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidGVzdDJAdGVzdC5jb20ifQ.rBeUc8eBP4IH3DuqJsMKWU3NypBLTwZHSSndo0hbQlEuxDaPTXaL-0CgXc9JewbkNShm3ACG4hqq2QR4HtPu1liLqg-lvdAscu_v4da4Y7TH_lQUCsJ_IdE9UFuOiTZBu7Z2hW5kX7yLx2NZ7Sgfrfhln6jRevaf0h7hAwvuQ7Mr2uBtF78RnXi-ZhrgIWiy5xSsrk4IauAAC4laZ6F955xjmYgkl5wf_oCr7YMxoQPHZ19QvVNQtEAAhe-I820mhJqw3WNdNLtx8mbmIYULqWYp1A9L2Tiv5-aDrShVQXGTdEQ49bX2sXfb4wHfpaEU807YQxU75ILAvicd2jsy8w",
+			"type": "default"
+		}
+	]
+}
